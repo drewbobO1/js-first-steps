@@ -147,6 +147,20 @@
         });
     }
 
+    // Event listeners
+    optionButtons[1].addEventListener('click', () => {
+        optionButtons[1].textContent = "Poo Poo";
+    })
+
+    const header = document.querySelector('h1');
+    header.addEventListener('mouseover', () => {
+        header.innerText = "Hovercraft full of eels";
+    })
+
+    header.addEventListener('mouseout', () => {
+        header.innerText = "Quiz.js";
+    })
+
 
     // ============ Classic For Loop version ===============
 
