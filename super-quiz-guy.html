@@ -137,7 +137,9 @@
         option.addEventListener('click', () => {
             explanation.innerText = fact.explanation;
 
-            disable(option)
+            for (let btn of optionButtons) {
+                disable(btn);
+            }
 
             if (option.innerText === fact.explanation) {
                 option.classList.add('correct');
