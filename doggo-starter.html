@@ -269,12 +269,8 @@
       // ======= Somebody in the class COMBINED them. DOG that is so cool
       const breedNameUnformatted = url.split("/")[4];
 
-      let breedNameSplitUp = "";
       if (breedNameUnformatted.includes("-")) {
-        breedNameSplitUp = breedNameUnformatted.split("-");
-      }
-
-      if (breedNameSplitUp) {
+        const breedNameSplitUp = breedNameUnformatted.split("-");
         const [second, first] = breedNameSplitUp;
         return `${first} ' ' ${second}`;
       } else {
