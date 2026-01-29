@@ -270,8 +270,7 @@
       const breedNameUnformatted = url.split("/")[4];
 
       if (breedNameUnformatted.includes("-")) {
-        const breedNameSplitUp = breedNameUnformatted.split("-");
-        const [second, first] = breedNameSplitUp;
+        const [second, first] = breedNameUnformatted.split("-");
         return `${first} ' ' ${second}`;
       } else {
         return breedNameUnformatted;
