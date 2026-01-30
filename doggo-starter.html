@@ -281,7 +281,15 @@
     // Given a URL, fetch the resource at that URL,
     // then parse the response as a JSON object,
     // finally return the "message" property of its body
-    async function fetchMessage(url) {}
+    async function fetchMessage(url) {
+      const res = await fetch(url);
+
+      // I thought this could work as a condensed version of the below; why doesn't it work?
+      // return await res.json().message;
+
+      const { message } = await res.json();
+      return message;
+    }
 
     // Function to add the multiple-choice buttons to the page
     function renderButtons(choicesArray, correctAnswer) {
@@ -305,6 +313,22 @@
       // Create a button element whose name, value, and textContent properties are the value of that choice,
       // attach a "click" event listener with the buttonHandler function,
       // and append the button as a child of the options element
+      function createChoiceButtons(
+        choicesArr,
+        handlerFunction,
+        optionsContainer,
+      ) {
+        choicesArr.forEach((choice) => {
+          const newBtn = document.createElement("button");
+          newBtn.name = choice;
+          newBtn.value = choice;
+          newBtn.textContent = choice;
+          newBtn.addEventListener("click", (e) => {
+            handlerFunction(e);
+          });
+          optionsContainer.appendChild(newBtn);
+        });
+      }
     }
 
     // Function to add the quiz content to the page
